@@ -12,6 +12,7 @@
             //Initialize UI behaviour
             nameEntry.TextChanged += OnNameChanged;
             greetButton.IsEnabled = false;
+            pageTransition.IsVisible = false;
         }
 
         private void OnNameChanged(object? sender, TextChangedEventArgs e)
@@ -41,6 +42,7 @@
             {
                 //Display result as normal
                 resultLabel.Text = "Hello, " + nameEntry.Text;
+                pageTransition.IsVisible = true;
             }
             else
             {
@@ -76,6 +78,12 @@
             //Clear the name entry & result label
             nameEntry.Text = string.Empty;
             resultLabel.Text = string.Empty;
+        }
+
+        public async void OnButtonPageTransitionClickedAsync(object? sender, EventArgs e)
+        {
+            //Begin the page transition to the screensaver page
+            await Shell.Current.GoToAsync(nameof(ScreenSaver));
         }
     }
 }
