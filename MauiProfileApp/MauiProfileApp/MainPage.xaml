@@ -7,35 +7,42 @@
         <VerticalStackLayout Padding="30" Spacing="15"
             >
             <Label Text="Profile App"/>
-            
+
             <Entry x:Name="nameEntry"
                    Placeholder="Enter Your Name"/>
-            
+
             <Entry x:Name="messageEntry"
                    Placeholder="Enter Your Message"/>
-            
+
             <Switch x:Name="showMessageSwitch"/>
-            
+
             <Slider x:Name="fontSlider"
                     Minimum="10"
                     Maximum="40"
                     Value="18"/>
 
-            
+            <Picker x:Name="greetingPicker">
+                <Picker.Items>
+                    <x:String>Hello</x:String>
+                    <x:String>Welcome</x:String>
+                    <x:String>Hi</x:String>
+                </Picker.Items>
+            </Picker>
+
+
             <Button Text="Show Profile"
                     Clicked="OnShowProfileClicked"/>
-            
+
             <Button Text="Clear"
                     Clicked="OnClearClicked"/>
-            
+
             <Label x:Name="resultLabel"
                    FontSize="18"/>
-            
+
             <Image x:Name="profileImage"
-                   Source="profile.png"
+                   Source="profile.jpg"
                    HeightRequest="150"/>
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
