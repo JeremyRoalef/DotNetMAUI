@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassingData.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Entry x:Name="nameEntry" Placeholder="Enter Your Name"/>
+            <Entry x:Name="ageEntry" Placeholder="Enter Age" Keyboard="Numeric"/>
+            <Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Enter your email"/>
+            <Button Text="Go to Page 2" Clicked="OnGoClicked"/>
+            <Button Text="Go to Page 3" Clicked="OnGoToThirdPageClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
