@@ -9,6 +9,25 @@
             InitializeComponent();
             invalidNameLabel.IsVisible = false;
             invalidAgeLabel.IsVisible = false;
+            Shell.SetTabBarIsVisible(this, false);
+
+            nameEntry.TextChanged += HandleNameChanged;
+            ageEntry.TextChanged += HandleAgeChanged;
+        }
+
+        private void HandleAgeChanged(object? sender, TextChangedEventArgs e)
+        {
+            UpdateTabBarVisibility();
+        }
+
+        private void HandleNameChanged(object? sender, TextChangedEventArgs e)
+        {
+            UpdateTabBarVisibility();
+        }
+
+        void UpdateTabBarVisibility()
+        {
+            Shell.SetTabBarIsVisible(this, IsValidAge() && IsValidName());
         }
 
         private bool IsValidAge()
@@ -58,7 +77,9 @@
             }
 
             //Check for invalid characters
-            foreach (char c in nameEntry.Text)
+            string nameInputToLower = nameEntry.Text.ToLower();
+
+            foreach (char c in nameInputToLower)
             {
                 //If the character is not in the alphabet, then it's not a valid name
                 if (!THE_ALPHABET.Contains(c))
