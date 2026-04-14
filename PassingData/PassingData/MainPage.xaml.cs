@@ -2,20 +2,88 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        static string THE_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
         public MainPage()
         {
             InitializeComponent();
+            invalidNameLabel.IsVisible = false;
+            invalidAgeLabel.IsVisible = false;
+        }
+
+        private bool IsValidAge()
+        {
+            if (ageEntry.Text == null)
+            {
+                return false;
+            }
+
+            //If no age given, then age is not valid
+            if (ageEntry.Text.Length == 0)
+            {
+                return false;
+            }
+
+            int userAge = 0;
+
+            //If you can't get the age as a number, then it's not valid
+            if (!int.TryParse(ageEntry.Text, out userAge))
+            {
+                return false;
+            }
+
+            //If age is 0, negative, or very old, then it's not valid
+            if (userAge <= 0 || userAge > 150)
+            {
+                return false;
+            }
+
+            //Age is valid
+            return true;
+        }
+
+        private bool IsValidName()
+        {
+            //If no name entry, then it's not a valid name
+            if (nameEntry.Text == null)
+            {
+                //No name
+                return false;
+            }
+            
+            if (nameEntry.Text.Length == 0)
+            {
+                //no name given
+                return false;
+            }
+
+            //Check for invalid characters
+            foreach (char c in nameEntry.Text)
+            {
+                //If the character is not in the alphabet, then it's not a valid name
+                if (!THE_ALPHABET.Contains(c))
+                {
+                    return false;
+                }
+            }
+
+            //Name is valid
+            return true;
         }
 
         async void OnGoClicked(object? sender, EventArgs e)
         {
-            string name = nameEntry.Text ?? "";
-            int age = -1;
-            int.TryParse(ageEntry.Text, out age);
+            //If age and name are valid, then transition to next page
+            bool isValidName = IsValidName();
+            bool isValidAge = IsValidAge();
 
-            await Shell.Current.GoToAsync(
+            if (isValidAge && isValidName)
+            {
+                string name = nameEntry.Text ?? "";
+                int age = -1;
+                int.TryParse(ageEntry.Text, out age);
+
+                await Shell.Current.GoToAsync(
                 nameof(SecondPage),
                 new Dictionary<string, object>
                 {
@@ -23,6 +91,14 @@
                     {"UserAge", age }
                 }
                 );
+                return;
+            }
+
+            //Handle age being invalid
+            invalidAgeLabel.IsVisible = !isValidAge;
+
+            //Handle name being invalid
+            invalidNameLabel.IsVisible = !isValidName;
         }
 
         async void OnGoToThirdPageClicked(object? sender, EventArgs e)

@@ -7,10 +7,12 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Label x:Name="invalidNameLabel" Text="Name is invalid" TextColor="Red"/>
             <Entry x:Name="nameEntry" Placeholder="Enter Your Name"/>
+            <Label x:Name="invalidAgeLabel" Text="Age is invalid" TextColor="Red"/>
             <Entry x:Name="ageEntry" Placeholder="Enter Age" Keyboard="Numeric"/>
             <Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Enter your email"/>
-            <Button Text="Go to Page 2" Clicked="OnGoClicked"/>
+            <Button x:Name ="goButton" Text="Go to Page 2" Clicked="OnGoClicked"/>
             <Button Text="Go to Page 3" Clicked="OnGoToThirdPageClicked"/>
         </VerticalStackLayout>
     </ScrollView>
