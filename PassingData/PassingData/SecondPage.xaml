@@ -7,9 +7,9 @@
             Padding="20"
             Spacing="15">
             <Label Text="This is Page 2" FontSize="24"/>
-            <Label x:Name="nameLabel"/>
-            <Label x:Name="ageLabel"/>
+            <Label x:Name="messageLabel"/>
             <Button Text="Go Back" Clicked="OnGoBackClicked"/>
+            <Button Text="Third Page" Clicked="OnButtonThirdPageClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 

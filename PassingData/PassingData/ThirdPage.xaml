@@ -8,6 +8,8 @@
             Spacing="15">
             <Label Text="This is the third page"/>
             <Label x:Name="emailLabel"/>
+            <Label x:Name="nameLabel"/>
+            <Label x:Name="ageLabel"/>
             <Button Text="Go to Main Page" Clicked="OnButtonGoToMainPageClicked"/>
         </VerticalStackLayout>
     </ScrollView>

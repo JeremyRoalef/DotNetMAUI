@@ -15,13 +15,19 @@ namespace PassingData
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            if (query.ContainsKey("UserEmail"))
+            if (query.ContainsKey("UserEmail") )
             {
                 emailLabel.Text = query["UserEmail"].ToString();
             }
             else
             {
                 emailLabel.Text = "Email not found";
+            }
+
+            if (query.ContainsKey("UserName") && query.ContainsKey("UserAge"))
+            {
+                nameLabel.Text = query["UserName"].ToString();
+                ageLabel.Text = query["UserAge"].ToString();
             }
         }
 
