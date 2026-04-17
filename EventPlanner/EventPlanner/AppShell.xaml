@@ -9,5 +9,18 @@
     <ShellContent
         ContentTemplate="{DataTemplate local:EventSelection}"
         Route="EventSelection" />
+    
+    <!--Flyout Menu-->
+    <MenuItem Text="Home" Clicked="OnHomeClicked">
 
+    </MenuItem>
+    <MenuItem Text="Earth Day" Clicked="OnEarthDayClicked">
+
+    </MenuItem>
+    <MenuItem Text="Book Club" Clicked="OnBookClubClicked">
+
+    </MenuItem>
+    <MenuItem Text="Applied Student Learning Showcase" Clicked="OnAppliedStudentLearningClicked">
+
+    </MenuItem>
 </Shell>
