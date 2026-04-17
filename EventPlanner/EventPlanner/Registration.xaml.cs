@@ -8,11 +8,12 @@ using System.Net.Mail;
 
 namespace EventPlanner
 {
-    public partial class Registration : ContentPage, IQueryAttributable
+    public partial class Registration : ContentPage
     {
         static int M_NUMBER_LENGTH = 9;
 
         EventData? selectedEvent = null;
+        UserData? userData = null;
 
         public Registration()
         {
@@ -21,25 +22,16 @@ namespace EventPlanner
             entryFullName.Unfocused += HandleNameUnfocused;
             entryMNumber.Unfocused += HandleMNumberUnfocused;
             entryEmail.Unfocused += HandleEmailUnfocused;
-        }
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
-        {
-            int eventID = -1;
 
-            //Get the ID of the passed event
-            if (query.ContainsKey("ID"))
-            {
-                int.TryParse(query["ID"].ToString(), out eventID);
-            }
+            //Display the event's name
+            selectedEvent = SessionData.SelectedEvent;
+            labelEventName.Text = $"Registration for {selectedEvent?.Name ?? "[Unknown Event Name]"}";
 
-            //Try to find the ID in the event details
-            if (EventData.EVENTS.ContainsKey(eventID))
-            {
-                selectedEvent = EventData.EVENTS[eventID];
-
-                //Display the event's name
-                labelEventName.Text = $"Registration for {selectedEvent.Name}";
-            }
+            //Populate entry labels if user data exists
+            userData = SessionData.UserData;
+            entryFullName.Text = userData?.UserName ?? string.Empty;
+            entryEmail.Text = userData?.UserEmail ?? string.Empty;
+            entryMNumber.Text = userData?.UserMNumber ?? string.Empty;
         }
 
         private void HandleNameUnfocused(object? sender, FocusEventArgs e)
@@ -132,15 +124,11 @@ namespace EventPlanner
 
             if (isValidName && isValidEmail && isValidMNumber)
             {
-                await Shell.Current.GoToAsync(nameof(Confirmation),
-                    new Dictionary<string, object>
-                    {
-                        {"ID", selectedEvent.ID},
-                        {"UserName", entryFullName.Text},
-                        {"UserEmail", entryEmail.Text },
-                        {"UserMNumber", entryMNumber.Text}
-                    }
-                    );
+                //Override existing user data
+                userData = new UserData(entryFullName.Text, entryEmail.Text, entryMNumber.Text);
+                SessionData.SetUserData(userData);
+
+                await Shell.Current.GoToAsync(nameof(Confirmation));
             }
         }
     }

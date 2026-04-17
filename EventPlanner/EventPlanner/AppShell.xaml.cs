@@ -20,32 +20,20 @@
 
         async void OnEarthDayClicked(object? sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(EventDetails),
-                new Dictionary<string, object>
-                {
-                    {"ID", 2}
-                }
-                );
+            SessionData.SetSelectedEvent(EventData.EVENTS[2]);
+            await Shell.Current.GoToAsync(nameof(EventDetails));
         }
 
         async void OnBookClubClicked(object? sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(EventDetails),
-                new Dictionary<string, object>
-                {
-                    {"ID", 1 }
-                }
-                );
+            SessionData.SetSelectedEvent(EventData.EVENTS[1]);
+            await Shell.Current.GoToAsync(nameof(EventDetails));
         }
 
         async void OnAppliedStudentLearningClicked(object? sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(EventDetails),
-                new Dictionary<string, object>
-                {
-                    { "ID", 3}
-                }
-                );
+            SessionData.SetSelectedEvent(EventData.EVENTS[3]);
+            await Shell.Current.GoToAsync(nameof(EventDetails));
         }
     }
 }

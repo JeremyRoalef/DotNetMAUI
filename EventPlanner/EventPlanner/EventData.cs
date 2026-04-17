@@ -16,6 +16,8 @@ namespace EventPlanner
             {3, new EventData(3, "Applied Learning Student Showcase", "Student Recreation Center", new DateTime(2026, 04, 22)) }
         };
 
+        public static Dictionary<int, List<UserData>> REGISTERED_EVENT_USERS = new Dictionary<int, List<UserData>>();
+
         public int ID { get; private set; }
         public string Name {  get; private set; }
         public string Location {  get; private set; }

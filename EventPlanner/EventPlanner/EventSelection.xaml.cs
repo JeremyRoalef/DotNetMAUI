@@ -34,17 +34,8 @@ namespace EventPlanner
 
         async void GoToEventDetails(int eventID)
         {
-            //Label debug = new Label();
-            //debug.Text = eventID.ToString();
-            //stackLayout.Add(debug);
-
-            await Shell.Current.GoToAsync(
-                nameof(EventDetails), 
-                new Dictionary<string, object>()
-                {
-                    {"ID", eventID}
-                }
-                );
+            SessionData.SetSelectedEvent(EventData.EVENTS[eventID]);
+            await Shell.Current.GoToAsync(nameof(EventDetails));
         }
     }
 }
