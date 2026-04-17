@@ -12,7 +12,7 @@ namespace EventPlanner
     {
         static int M_NUMBER_LENGTH = 9;
 
-        EventData selectedEvent = null;
+        EventData? selectedEvent = null;
 
         public Registration()
         {
@@ -132,7 +132,15 @@ namespace EventPlanner
 
             if (isValidName && isValidEmail && isValidMNumber)
             {
-                await Shell.Current.GoToAsync(nameof(Confirmation));
+                await Shell.Current.GoToAsync(nameof(Confirmation),
+                    new Dictionary<string, object>
+                    {
+                        {"ID", selectedEvent.ID},
+                        {"UserName", entryFullName.Text},
+                        {"UserEmail", entryEmail.Text },
+                        {"UserMNumber", entryMNumber.Text}
+                    }
+                    );
             }
         }
     }

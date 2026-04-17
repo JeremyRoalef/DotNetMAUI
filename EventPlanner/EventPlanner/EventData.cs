@@ -13,7 +13,7 @@ namespace EventPlanner
         {
             {1, new EventData(1, "Book Club", "Morrisville Library", new DateTime(2026, 04, 20)) },
             {2, new EventData(2, "Earth Day", "Student Recreation Center", new DateTime(2026, 04, 22)) },
-            {3, new EventData(3, "Applied Learning Student Showcase", "Student REcreation Center", new DateTime(2026, 04, 22)) }
+            {3, new EventData(3, "Applied Learning Student Showcase", "Student Recreation Center", new DateTime(2026, 04, 22)) }
         };
 
         public int ID { get; private set; }

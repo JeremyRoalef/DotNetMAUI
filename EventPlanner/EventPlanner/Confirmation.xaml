@@ -7,7 +7,13 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Button Text="Return to Main Menu" Clicked="OnButtonReturnToMainMenuClicked"/>
+            <Label x:Name="labelUserMessage"/>
+            <Label Text="Event Details:"/>
+            <Label x:Name="labelEventDetails"/>
+            <Label Text="User Details:"/>
+            <Label x:Name="labelUserDetails"/>
+            <Button Text="Back" Clicked="OnButtonBackClicked"/>
+            <Button Text="Confirm" Clicked="OnButtonConfirmClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 

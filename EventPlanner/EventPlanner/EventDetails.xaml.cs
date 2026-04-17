@@ -3,7 +3,7 @@ namespace EventPlanner
 {
     public partial class EventDetails : ContentPage, IQueryAttributable
     {
-        EventData selectedEvent = null;
+        EventData? selectedEvent = null;
 
         public EventDetails()
         {
