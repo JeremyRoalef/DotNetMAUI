@@ -41,8 +41,11 @@ namespace EventPlanner
 
         async void OnButtonConfirmClicked(object sender, EventArgs e)
         {
-            //TODO: add user to event's registration details
-
+            if (selectedEvent == null) return;
+            if (userData == null) return;
+            //Get the corresponding list for users registered for the event
+            
+            EventData.AddUserToEvent(selectedEvent.ID, userData);
             await Shell.Current.GoToAsync($"{nameof(RegistrationConfirmation)}");
         }
     }

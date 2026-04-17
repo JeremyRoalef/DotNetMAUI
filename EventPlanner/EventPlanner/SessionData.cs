@@ -10,7 +10,6 @@ namespace EventPlanner
     {
         public static UserData? UserData { get; private set; }
         public static EventData? SelectedEvent {  get; private set; }
-
         public static void SetUserData(UserData newUserData) => UserData = newUserData;
         public static void SetSelectedEvent(EventData newEventData) => SelectedEvent = newEventData;
     }

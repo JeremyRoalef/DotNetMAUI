@@ -11,6 +11,9 @@
             Routing.RegisterRoute(nameof(Registration), typeof(Registration));
             Routing.RegisterRoute(nameof(Confirmation), typeof(Confirmation));
             Routing.RegisterRoute(nameof(RegistrationConfirmation), typeof(RegistrationConfirmation));
+
+            //Initialize the event data
+            EventData.Initialize();
         }
 
         async void OnHomeClicked(object? sender, EventArgs e)
