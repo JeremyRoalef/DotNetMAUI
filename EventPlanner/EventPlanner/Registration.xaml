@@ -7,6 +7,22 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <!--Displaying Event Details for Registration-->
+            <Label x:Name="labelEventName"/>
+
+            <!--Entry for Name-->
+            <Label x:Name="labelInvalidName" Text="Invalid Name. Names cannot contain numbers or symbols" IsVisible="False" TextColor="Red"/>
+            <Entry x:Name="entryFullName" Placeholder="Full Name" Keyboard="Text"/>
+
+            <!--Entry for M#-->
+            <Label x:Name="labelInvalidMNumber" Text="Invalid M#. A valid M# is in format 'M12345678'" IsVisible="False" TextColor="Red"/>
+            <Entry x:Name="entryMNumber" Placeholder="M#" MaxLength="9" Keyboard="Text"/>
+
+            <!--Entry for Email-->
+            <Label x:Name="labelInvalidEmail" Text ="Invalid Email. Ensure your email is in format example@domain.com or something similar" IsVisible="False" TextColor="Red"/>
+            <Entry x:Name="entryEmail" Placeholder="Email" Keyboard="Email"/>
+            
+            <!--Buttons for Navigation-->
             <Button Text="Back" Clicked="OnButtonBackClicked"/>
             <Button Text="Confirm" Clicked="OnButtonConfirmClicked"/>
         </VerticalStackLayout>

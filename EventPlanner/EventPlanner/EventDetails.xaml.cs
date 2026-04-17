@@ -3,16 +3,18 @@ namespace EventPlanner
 {
     public partial class EventDetails : ContentPage, IQueryAttributable
     {
-        int eventID = -1;
         EventData selectedEvent = null;
 
         public EventDetails()
         {
             InitializeComponent();
+
         }
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
+            int eventID = -1;
+
             //Get the ID of the passed event
             if (query.ContainsKey("ID"))
             {
@@ -30,7 +32,7 @@ namespace EventPlanner
                 labelEventDate.Text = selectedEvent.Date.ToString();
             }
         }
-
+        
         async void OnButtonBackClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync($"///{nameof(EventSelection)}");
