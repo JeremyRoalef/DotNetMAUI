@@ -8,6 +8,7 @@
             Padding="30,0"
             Spacing="25">
             <Button Text="Load Students" Clicked="LoadStudents"/>
+            <Button Text="Add Student" Clicked="AddStudent"/>
             <CollectionView x:Name="studentList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -16,6 +17,7 @@
                             <Label Text="{Binding dept_name}" FontSize="18"/>
                             <Label Text="{Binding gpa}"/>
                             <Label Text="{Binding email}"/>
+                            <Button Text="Update Info" Clicked="OnUpdateStudent" CommandParameter="{Binding .}"/>
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

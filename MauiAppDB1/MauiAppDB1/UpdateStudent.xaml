@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppDB1.UpdateStudent">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="Student Name"/>
+            <Entry x:Name="entryName"/>
+            <Label Text="Student Email"/>
+            <Entry x:Name="entryEmail"/>
+            <Label Text="Student GPA"/>
+            <Entry x:Name="entryGPA"/>
+            <Label Text="Department"/>
+            <Entry x:Name="entryDepartment"/>
+            <Button Text="Submit" Clicked="OnSubmit"/>
+            <Label x:Name="labelResponse"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

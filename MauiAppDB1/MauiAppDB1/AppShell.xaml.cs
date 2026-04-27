@@ -5,6 +5,8 @@
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(AddStudent), typeof(AddStudent));
+            Routing.RegisterRoute(nameof(UpdateStudent), typeof(UpdateStudent));
         }
     }
 }
