@@ -11,6 +11,7 @@
             Routing.RegisterRoute(nameof(CreateAccountPage), typeof(CreateAccountPage));
             Routing.RegisterRoute(nameof(ExamPage), typeof(ExamPage));
             Routing.RegisterRoute(nameof(ResultsPage), typeof(ResultsPage));
+            Routing.RegisterRoute(nameof(SearchDatabasePage), typeof(SearchDatabasePage));
         }
     }
 }

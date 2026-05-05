@@ -1,8 +1,8 @@
 ﻿namespace CITA355_FinalProject
 {
-    public partial class MainPage : ContentPage
+    public partial class SearchDatabasePage : ContentPage
     {
-        public MainPage()
+        public SearchDatabasePage()
         {
             InitializeComponent();
         }
