@@ -4,8 +4,8 @@
              x:Class="CITA355_FinalProject.CreateAccountPage">
 
     <ScrollView>
-        <VerticalStackLayout>
-            <HorizontalStackLayout 
+        <VerticalStackLayout Spacing="25" Padding="25">
+            <HorizontalStackLayout
                 HorizontalOptions = "Center"
                 Spacing="10">
 
@@ -14,6 +14,25 @@
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
             </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="20">
+                <Label x:Name="labelFirstName" Text="First Name: " Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryFirstName" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelLastName" Text="Last Name: " Grid.Row ="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryLastName" Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelEmail" Text="Email: " Grid.Row ="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryEmail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelPassword" Text="Password: " Grid.Row ="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryPassword" Grid.Row="3" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelConfirmPassword" Text="Confirm Password: " Grid.Row ="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryConfirmPassword" Grid.Row="4" Grid.Column="1" VerticalOptions="Center"/>
+            </Grid>
+
+            <Button Text="Submit" Clicked="OnButtonSubmitClicked" HorizontalOptions="Start" MaximumWidthRequest="500"/>
         </VerticalStackLayout>
     </ScrollView>
 

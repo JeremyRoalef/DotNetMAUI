@@ -13,6 +13,9 @@
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
             </HorizontalStackLayout>
+
+            <Label x:Name="labelGreetUser" IsVisible="False"/>
+            <Button x:Name="buttonTakeQuiz" Text="Take Quiz" Clicked="OnButtonTakeQuizClicked" IsVisible="False"/>
         </VerticalStackLayout>
     </ScrollView>
 

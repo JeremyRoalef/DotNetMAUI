@@ -7,6 +7,19 @@
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (SessionData.ActiveStudent != null)
+            {
+                labelGreetUser.IsVisible = true;
+                labelGreetUser.Text = $"Welcome, {SessionData.ActiveStudent.firstName} {SessionData.ActiveStudent.lastName}";
+
+                buttonTakeQuiz.IsVisible = true;
+            }
+        }
+
         async void OnHomeClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync($"///{nameof(MainPage)}");
@@ -25,6 +38,11 @@
         async void OnSearchDatabaseClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(SearchDatabasePage));
+        }
+
+        async void OnButtonTakeQuizClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(ExamPage));
         }
     }
 }
