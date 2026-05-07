@@ -115,8 +115,8 @@ namespace CITA355_FinalProject
 
             try
             {
-                Message message = await ExamAPI.AddStudent(student);
-                await DisplayAlert("Submitted", message.message, "OK");
+                APIResponse reposnse = await ExamAPI.AddStudent(student);
+                await DisplayAlert("Submitted", reposnse.Message, "OK");
 
                 //Store the new active user & reload the home page
                 SessionData.ActiveStudent = student;

@@ -4,7 +4,7 @@ namespace CITA355_FinalProject
 {
     internal static class ExamAPI
     {
-        public static async Task<Message> AddStudent(Student student)
+        public static async Task<APIResponse> AddStudent(Student student)
         {
             //URL to add new account
             string url = "http://localhost/CITA_355/Project2/processNewAccountAPI.php";
@@ -27,10 +27,64 @@ namespace CITA355_FinalProject
 
             string responseAsString = await response.Content.ReadAsStringAsync();
 
-            Message? message = JsonSerializer.Deserialize<Message>(responseAsString);
+            
+
+            APIResponse? apiResponse = JsonSerializer.Deserialize<APIResponse>(responseAsString);
 
             //Return the response
-            return message;
+            return apiResponse;
+        }
+
+        public static async Task<APIResponse> GetStudent(int studentID)
+        {
+            //URL to add new account
+            string url = "http://localhost/CITA_355/Project2/getStudent.php";
+
+            //Create the HTTP Client
+            HttpClient httpClient = new HttpClient();
+
+            //Dictionary of data to pass to the web page
+            Dictionary<string, string> accountData = new Dictionary<string, string>()
+            {
+                {"studentID", studentID.ToString()}
+            };
+
+            //Send the information to the web page
+            FormUrlEncodedContent content = new FormUrlEncodedContent(accountData);
+            HttpResponseMessage response = await httpClient.PostAsync(url, content);
+
+            string responseAsString = await response.Content.ReadAsStringAsync();
+
+            APIResponse? apiResponse = JsonSerializer.Deserialize<APIResponse>(responseAsString);
+
+            //Return the response
+            return apiResponse;
+        }
+
+        public static async Task<APIResponse> GetStudent(string email)
+        {
+            //URL to add new account
+            string url = "http://localhost/CITA_355/Project2/getStudent.php";
+
+            //Create the HTTP Client
+            HttpClient httpClient = new HttpClient();
+
+            //Dictionary of data to pass to the web page
+            Dictionary<string, string> accountData = new Dictionary<string, string>()
+            {
+                {"studentEmail", email.ToString()}
+            };
+
+            //Send the information to the web page
+            FormUrlEncodedContent content = new FormUrlEncodedContent(accountData);
+            HttpResponseMessage response = await httpClient.PostAsync(url, content);
+
+            string responseAsString = await response.Content.ReadAsStringAsync();
+
+            APIResponse? apiResponse = JsonSerializer.Deserialize<APIResponse>(responseAsString);
+
+            //Return the response
+            return apiResponse;
         }
     }
 }
