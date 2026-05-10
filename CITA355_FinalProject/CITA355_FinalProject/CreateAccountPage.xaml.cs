@@ -115,17 +115,29 @@ namespace CITA355_FinalProject
 
             try
             {
-                APIResponse reposnse = await ExamAPI.AddStudent(student);
-                await DisplayAlert("Submitted", reposnse.Message, "OK");
+                APIResponse addStudentResponse = await ExamAPI.AddStudent(student);
+                await DisplayAlert("Submitted", addStudentResponse.Message, "OK");
 
-                //Store the new active user & reload the home page
-                SessionData.ActiveStudent = student;
+                //Retrieve the full student information, & set the active student to that student
+                APIResponse studentAPIResponse = await ExamAPI.GetStudent(student.email);
 
+                if (studentAPIResponse.Success)
+                {
+                    //Store the new active user & reload the home page
+                    SessionData.ActiveStudent = studentAPIResponse.Student;
+                }
+                else
+                {
+                    //There was a problem retrieving the student information
+                    await DisplayAlert("Error", studentAPIResponse.Message, "OK");
+                }
+
+                //Return to main page
                 await Shell.Current.GoToAsync($"///{nameof(MainPage)}");
             }
-            catch
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", "Something went wrong submitting the student to the server", "OK");
+                await DisplayAlert("Error", ex.Message, "OK");
             }
         }
     }

@@ -64,7 +64,7 @@ namespace CITA355_FinalProject
         public static async Task<APIResponse> GetStudent(string email)
         {
             //URL to add new account
-            string url = "http://localhost/CITA_355/Project2/getStudent.php";
+            string url = "http://localhost/CITA_355/Project2/getStudentAPI.php";
 
             //Create the HTTP Client
             HttpClient httpClient = new HttpClient();
