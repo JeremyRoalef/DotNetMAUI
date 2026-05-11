@@ -6,5 +6,10 @@
         {
             InitializeComponent();
         }
+
+        async void OnSubmitExam(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,7 +7,163 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            
+            
+            <!--Multiple Choice Question-->
+            <Border
+                StrokeThickness="1"
+                Padding="15">
 
+                <VerticalStackLayout Spacing="12">
+
+                    <!--Multiple Choice-->
+                    <Label
+                        Text="1. What does PHP stand for?"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        LineBreakMode="WordWrap"/>
+
+                    <!--Answers-->
+                    <VerticalStackLayout
+                        Padding="20,0,0,0"
+                        Spacing="10">
+
+                        <RadioButton Content="Personal Home Page"/>
+                        <RadioButton Content="Private Home Page"/>
+                        <RadioButton Content="Preprocessor Hypertext"/>
+                        
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!--Checkbox Question-->
+            <Border
+                StrokeThickness="1"
+                Padding="15">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- Question -->
+                    <Label
+                        Text="2. Which are server-side languages?"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        LineBreakMode="WordWrap"/>
+
+                    <!--Answers-->
+                    <VerticalStackLayout
+                        Padding="20,0,0,0"
+                        Spacing="10">
+
+                        <HorizontalStackLayout Spacing="10">
+                            <CheckBox/>
+                            <Label Text="PHP"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="10">
+                            <CheckBox/>
+                            <Label Text="Javscript"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="10">
+                            <CheckBox/>
+                            <Label Text="Python"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!--Multiple Choice Question-->
+            <Border
+                StrokeThickness="1"
+                Padding="15">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!--Multiple Choice-->
+                    <Label
+                        Text="3. Which database is commonly used with PHP?"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        LineBreakMode="WordWrap"/>
+
+                    <!--Answers-->
+                    <VerticalStackLayout
+                        Padding="20,0,0,0"
+                        Spacing="10">
+
+                        <RadioButton Content="MySQL"/>
+                        <RadioButton Content="Oracle"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!--Dropdown Question-->
+            <Border
+                StrokeThickness="1"
+                Padding="15">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!--Question-->
+                    <Label
+                        Text="4. What tag is used in HTML forms?"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        LineBreakMode="WordWrap"/>
+
+                    <!--Dropdown Selection-->
+                    <Picker
+                        Title="Select an answer"
+                        Margin="20,0,0,0">
+
+                        <Picker.Items>
+                            <x:String>form</x:String>
+                            <x:String>input</x:String>
+                            <x:String>body</x:String>
+                        </Picker.Items>
+
+                    </Picker>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!--Multiple Choice Question-->
+            <Border
+                StrokeThickness="1"
+                Padding="15">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <!--Multiple Choice-->
+                    <Label
+                        Text="5. What does SQL stand for?"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        LineBreakMode="WordWrap"/>
+
+                    <!--Answers-->
+                    <VerticalStackLayout
+                        Padding="20,0,0,0"
+                        Spacing="10">
+
+                        <RadioButton Content="Structured Query Language"/>
+                        <RadioButton Content="Simple Query Language"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button Text="Submit" Clicked="OnSubmitExam"/>
         </VerticalStackLayout>
     </ScrollView>
 
