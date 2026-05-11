@@ -14,6 +14,16 @@
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
             </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="20">
+                <Label x:Name="labelEmail" Text="Email: " Grid.Row ="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryEmailOrID" Grid.Row="2" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelPassword" Text="Password: " Grid.Row ="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryPassword" Grid.Row="3" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Button Text="Login" Clicked="OnSubmitLogin"/>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 
