@@ -10,5 +10,9 @@ namespace CITA355_FinalProject
     {
         public static Student? ActiveStudent { get; set; }
 
+        public static void Clear()
+        {
+            ActiveStudent = null;
+        }
     }
 }

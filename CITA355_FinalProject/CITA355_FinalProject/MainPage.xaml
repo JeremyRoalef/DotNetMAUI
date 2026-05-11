@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CITA355_FinalProject.MainPage">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="25" Padding="25">
             <HorizontalStackLayout 
                 HorizontalOptions = "Center"
                 Spacing="10">
@@ -12,6 +12,7 @@
                 <Button x:Name ="buttonLogin" Text="Login" Clicked="OnLoginClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
+                <Button x:Name ="buttonLogout" Text="Log Out" Clicked="OnLogoutClicked" MinimumWidthRequest="100" IsVisible="False"/>
             </HorizontalStackLayout>
 
             <Label x:Name="labelGreetUser" IsVisible="False"/>
