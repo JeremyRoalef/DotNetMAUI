@@ -24,13 +24,13 @@
                         LineBreakMode="WordWrap"/>
 
                     <!--Answers-->
-                    <VerticalStackLayout
+                    <VerticalStackLayout x:Name="Question1" RadioButtonGroup.GroupName="Question1"
                         Padding="20,0,0,0"
                         Spacing="10">
 
-                        <RadioButton Content="Personal Home Page"/>
-                        <RadioButton Content="Private Home Page"/>
-                        <RadioButton Content="Preprocessor Hypertext"/>
+                        <RadioButton Content="Personal Home Page" Value="a" />
+                        <RadioButton Content="Private Home Page" Value="b" />
+                        <RadioButton Content="Preprocessor Hypertext" Value="c" />
                         
                     </VerticalStackLayout>
 
@@ -58,19 +58,19 @@
                         Spacing="10">
 
                         <HorizontalStackLayout Spacing="10">
-                            <CheckBox/>
+                            <CheckBox x:Name="checkboxPHP"/>
                             <Label Text="PHP"
                                    VerticalOptions="Center"/>
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="10">
-                            <CheckBox/>
+                            <CheckBox x:Name="checkboxJavascript"/>
                             <Label Text="Javscript"
                                    VerticalOptions="Center"/>
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="10">
-                            <CheckBox/>
+                            <CheckBox x:Name="checkboxPython"/>
                             <Label Text="Python"
                                    VerticalOptions="Center"/>
                         </HorizontalStackLayout>
@@ -84,7 +84,8 @@
                 StrokeThickness="1"
                 Padding="15">
 
-                <VerticalStackLayout Spacing="12">
+                <VerticalStackLayout 
+                    Spacing="12">
 
                     <!--Multiple Choice-->
                     <Label
@@ -94,12 +95,12 @@
                         LineBreakMode="WordWrap"/>
 
                     <!--Answers-->
-                    <VerticalStackLayout
+                    <VerticalStackLayout x:Name="Question3" RadioButtonGroup.GroupName="Question3"
                         Padding="20,0,0,0"
                         Spacing="10">
 
-                        <RadioButton Content="MySQL"/>
-                        <RadioButton Content="Oracle"/>
+                        <RadioButton Content="MySQL" Value="mysql"/>
+                        <RadioButton Content="Oracle" Value="oracle"/>
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
@@ -121,7 +122,7 @@
                         LineBreakMode="WordWrap"/>
 
                     <!--Dropdown Selection-->
-                    <Picker
+                    <Picker x:Name="pickerQuestion4"
                         Title="Select an answer"
                         Margin="20,0,0,0">
 
@@ -151,12 +152,12 @@
                         LineBreakMode="WordWrap"/>
 
                     <!--Answers-->
-                    <VerticalStackLayout
+                    <VerticalStackLayout x:Name="Question5" RadioButtonGroup.GroupName="Question5"
                         Padding="20,0,0,0"
                         Spacing="10">
 
-                        <RadioButton Content="Structured Query Language"/>
-                        <RadioButton Content="Simple Query Language"/>
+                        <RadioButton Content="Structured Query Language" Value="a"/>
+                        <RadioButton Content="Simple Query Language" Value="b"/>
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
