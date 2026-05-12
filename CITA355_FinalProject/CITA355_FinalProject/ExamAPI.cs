@@ -182,5 +182,36 @@ namespace CITA355_FinalProject
             //Return the response
             return apiResponse;
         }
+
+        public static async Task<APISearchResponse> SearchDatabase(SearchFilters filters)
+        {
+            //URL to process exam
+            string url = "http://localhost/CITA_355/Project2/searchDatabaseAPI.php";
+
+            //Create the HTTP Client
+            HttpClient httpClient = new HttpClient();
+
+            //Data to pass to the web page
+            Dictionary<string, string> searchFuncData= new Dictionary<string, string>()
+            {
+                { "studentID", filters.studentID.ToString()},
+                { "email", filters.email},
+                { "firstName", filters.firstName },
+                { "lastName", filters.lastName },
+                { "examDate", filters.examDate.Date.ToString("yyyy-MM-dd") },
+                { "searchFunc", filters.searchFunctionality.ToString() }
+            };
+
+            //Send the information to the web page
+            FormUrlEncodedContent content = new FormUrlEncodedContent(searchFuncData);
+            HttpResponseMessage response = await httpClient.PostAsync(url, content);
+
+            string responseAsString = await response.Content.ReadAsStringAsync();
+
+            APISearchResponse? apiResponse = JsonSerializer.Deserialize<APISearchResponse>(responseAsString);
+
+            //Return the response
+            return apiResponse;
+        }
     }
 }

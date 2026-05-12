@@ -4,7 +4,7 @@
              x:Class="CITA355_FinalProject.SearchDatabasePage">
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="25" Padding="25">
             <HorizontalStackLayout 
                 HorizontalOptions = "Center"
                 Spacing="10">
@@ -12,8 +12,166 @@
                 <Button x:Name ="buttonHome" Text="Home" Clicked="OnHomeClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonLogin" Text="Login" Clicked="OnLoginClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
-                <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
+                <Button x:Name ="buttonSearchDatabase" Text="Search Database" MinimumWidthRequest="100"/>
             </HorizontalStackLayout>
+            
+            <!--Form for search filters-->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="20">
+                <Label Text="studentID: " Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"/>
+                <Entry x:Name="entryStudentID" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelFirstName" Text="First Name: " Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryFirstName" Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelLastName" Text="Last Name: " Grid.Row ="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryLastName" Grid.Row="2" Grid.Column="1" VerticalOptions="Center"/>
+
+                <Label x:Name="labelEmail" Text="Email: " Grid.Row ="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Entry x:Name ="entryEmail" Grid.Row="3" Grid.Column="1" VerticalOptions="Center"/>
+
+                <CheckBox x:Name="checkboxUseDate" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"/>
+                <DatePicker x:Name="datePicker" Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+                <Label Text="Search Functionality: " Grid.Row="5" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"/>
+                <Picker 
+                    Grid.Row="5" Grid.Column="1"
+                    x:Name="pickerSearchFunc"
+                    Margin="20,0,0,0">
+
+                    <Picker.Items>
+                        <x:String>Students</x:String>
+                        <x:String>Quizzes</x:String>
+                        <x:String>Students and Quizzes</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+
+
+            <Button Text="Search" Clicked="OnSearch"/>
+
+            <Grid ColumnDefinitions="80,120,120,250,120,120,80"
+                ColumnSpacing="0"
+                RowSpacing="0">
+
+                <Border Grid.Column="0"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="ID"
+               FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="1"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="First Name"
+               FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="2"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="Last Name"
+               FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="3"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="Email"
+               FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="4"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="Date"
+               FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="5"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="Time" FontAttributes="Bold"/>
+                </Border>
+
+                <Border Grid.Column="6"
+                    Stroke="Black"
+                    StrokeThickness="1"
+                    Padding="5">
+                    <Label Text="Score" FontAttributes="Bold"/>
+                </Border>
+
+            </Grid>
+
+            <!--Search Table Results-->
+            <CollectionView ItemsSource="{Binding Results}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid ColumnDefinitions="80,120,120,250,120,120,80"
+                          ColumnSpacing="0"
+                          RowSpacing="0">
+
+                            <Border Grid.Column="0"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding studentID}" />
+                            </Border>
+
+                            <Border Grid.Column="1"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding firstName}" />
+                            </Border>
+
+                            <Border Grid.Column="2"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding lastName}" />
+                            </Border>
+
+                            <Border Grid.Column="3"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding email}" />
+                            </Border>
+
+                            <Border Grid.Column="4"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding date}" />
+                            </Border>
+
+                            <Border Grid.Column="5"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding time}" />
+                            </Border>
+
+                            <Border Grid.Column="6"
+                                Stroke="Black"
+                                StrokeThickness="1"
+                                Padding="5">
+                                <Label Text="{Binding score}" />
+                            </Border>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 

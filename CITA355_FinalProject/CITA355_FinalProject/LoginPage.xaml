@@ -10,7 +10,7 @@
                 Spacing="10">
 
                 <Button x:Name ="buttonHome" Text="Home" Clicked="OnHomeClicked" MinimumWidthRequest="100"/>
-                <Button x:Name ="buttonLogin" Text="Login" Clicked="OnLoginClicked" MinimumWidthRequest="100"/>
+                <Button x:Name ="buttonLogin" Text="Login" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonCreateAccount" Text="Create Account" Clicked="OnCreateAccountClicked" MinimumWidthRequest="100"/>
                 <Button x:Name ="buttonSearchDatabase" Text="Search Database" Clicked="OnSearchDatabaseClicked" MinimumWidthRequest="100"/>
             </HorizontalStackLayout>

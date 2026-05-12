@@ -14,11 +14,6 @@
             InitializePage();
         }
 
-        async void OnHomeClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync($"///{nameof(MainPage)}");
-        }
-
         async void OnLoginClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(LoginPage));
